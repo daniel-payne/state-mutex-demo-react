@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.microRed {
+  background-color: red;
+  height: 4px;
+  width: 4px;
+ margin: 2px;
+}
+
+
+.microBlue {
+  background-color: blue;
+  height: 4px;
+  width: 4px;
+  margin: 2px;
+}
+
+
+.microGreen {
+  background-color: green;
+  height: 4px;
+  width: 4px;
+  margin: 2px;
+}
+
+.microGrey {
+  background-color: gainsboro;
+  height: 4px;
+  width: 4px;
+  margin: 2px;
+}
