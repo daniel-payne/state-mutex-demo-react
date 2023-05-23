@@ -1,6 +1,6 @@
 import { HTMLAttributes, PropsWithChildren, useCallback, useState } from "react"
 
-import { useSharedState } from "@keldan-systems/state-mutex"
+import { useDataState, useSharedState } from "@keldan-systems/state-mutex"
 import { useQueryState } from "@keldan-systems/state-mutex"
 import { useHashState } from "@keldan-systems/state-mutex"
 import { useLocalState } from "@keldan-systems/state-mutex"
@@ -21,6 +21,8 @@ export default function DemoComponent({ index }: PropsWithChildren<ComponentProp
 
   const [localNumber, setLocalNumber] = useLocalState<number>("LOCAL-VALUE-3", 300)
   const [localString, setLocalString] = useLocalState<string>("LOCAL-VALUE-5", "XXX")
+
+  const dataNumber = useDataState<number>("SHARED-VALUE-1")
 
   const [count, setCount] = useQueryState<number>("demo-count", 0)
 
@@ -50,7 +52,6 @@ export default function DemoComponent({ index }: PropsWithChildren<ComponentProp
           </button>
         </div>
       </div>
-
       {/* useState ======================================================================================================================================= */}
       <div className="m-4 p-4 border border-secondary">
         <h6>useState</h6>
@@ -62,7 +63,6 @@ export default function DemoComponent({ index }: PropsWithChildren<ComponentProp
           Decrease
         </button>
       </div>
-
       {/* useSharedState =================================================================================================================================== */}
       <div className="m-4 p-4 border border-secondary">
         <h6>useSharedState</h6>
@@ -85,7 +85,6 @@ export default function DemoComponent({ index }: PropsWithChildren<ComponentProp
           </button>
         </div>
       </div>
-
       {/* useQueryState =================================================================================================================================== */}
       <div className="m-4 p-4 border border-secondary">
         <h6>useQueryState</h6>
@@ -102,7 +101,6 @@ export default function DemoComponent({ index }: PropsWithChildren<ComponentProp
           </button>
         </div>
       </div>
-
       {/* useQueryState =================================================================================================================================== */}
       <div className="m-4 p-4 border border-secondary">
         <h6>useHashState</h6>
@@ -119,7 +117,6 @@ export default function DemoComponent({ index }: PropsWithChildren<ComponentProp
           </button>
         </div>
       </div>
-
       {/* useLocalState =================================================================================================================================== */}
       <div className="m-4 p-4 border border-secondary">
         <h6>useLocalState</h6>
@@ -142,6 +139,13 @@ export default function DemoComponent({ index }: PropsWithChildren<ComponentProp
           </button>
         </div>
       </div>
+      {/* useDataState =================================================================================================================================== */}
+      <div className="m-4 px-4">
+        <h6>useDataState</h6>
+        <div>
+          <span>{dataNumber}</span>
+        </div>
+      </div> 
     </div>
   )
 }

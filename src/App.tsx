@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
 
-import { useStore, useQueryState, clearStore } from "@keldan-systems/state-mutex"
+import { useStore, useQueryState } from "@keldan-systems/state-mutex"
 
 import DemoComponent from "./components/DemoComponent"
 
@@ -9,7 +9,8 @@ import SharedComponent from "./components/SharedComponent"
 import StressComponent from "./components/StressComponent"
 
 function App() {
-  const [store] = useStore()
+  const {store, actions: {clearStore}} = useStore()
+
   const [demos, setDemos] = useQueryState<number>("demo-count", 0)
   const [shared, setShared] = useQueryState<number>("shared-count", 0)
   const [stress, setStress] = useQueryState<number>("stress-count", 0)
